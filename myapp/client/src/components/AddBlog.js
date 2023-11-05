@@ -67,7 +67,7 @@ const AddBlog = () => {
             margin="normal"
             variant="outlined"
           />
-          <TextField
+          <textarea cols={20} rows={20}
             label="Body"
             name="content"
             onChange={handleChange}
