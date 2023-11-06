@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
-import { Box, TextField, Typography, Button } from "@mui/material";
 
 const AddBlog = () => {
   const navigate = useNavigate();
@@ -40,61 +39,40 @@ const AddBlog = () => {
   };
 
   return (
-    <div>
-      <form onSubmit={handleSubmit}>
-        <Box
-          boxShadow="10px 10px 20px #ccc"
-          padding={3}
-          margin={"auto"}
-          marginTop={5}
-          display="flex"
-          flexDirection={"column"}
-          width={"70%"}
+    <div className="flex justify-center items-center h-screen">
+      <form onSubmit={handleSubmit} className="bg-white shadow-lg p-6 rounded-lg w-2/3">
+        <h2 className="text-2xl font-bold mb-4 text-gray-800">Create your blog...</h2>
+        <input
+          type="text"
+          name="title"
+          onChange={handleChange}
+          value={inputs.title}
+          placeholder="Title"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+        />
+        <textarea
+          cols={20}
+          rows={10}
+          name="content"
+          onChange={handleChange}
+          value={inputs.content}
+          placeholder="Body"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+        />
+        <input
+          type="text"
+          name="image"
+          onChange={handleChange}
+          value={inputs.image}
+          placeholder="Image URL"
+          className="w-full p-2 mb-4 border border-gray-300 rounded-md"
+        />
+        <button
+          className="w-full py-2 mt-4 bg-blue-500 text-white rounded-md hover:bg-blue-600"
+          type="submit"
         >
-          <Typography
-            color="gray"
-            variant="h4"
-            textAlign={"left"}
-          >
-            Create your blog...
-          </Typography>
-          <br/><br/>
-          <TextField
-            label="Title"
-            name="title"
-            onChange={handleChange}
-            value={inputs.title}
-            margin="normal"
-            variant="outlined"
-          />
-          <textarea cols={20} rows={20}
-            label="Body"
-            name="content"
-            onChange={handleChange}
-            value={inputs.content}
-            margin="normal"
-            variant="outlined"
-          />
-
-          <TextField
-            label="Image URL"
-            name="image"
-            onChange={handleChange}
-            value={inputs.image}
-            margin="normal"
-            variant="outlined"
-          />
-          <br />
-          <Button
-            sx={{ mt: 2, borderRadius: 3, width: '150px' }}
-            variant="contained"
-            color="primary"
-            type="submit"
-          >
-            Submit
-          </Button>
-          <br />
-        </Box>
+          Submit
+        </button>
       </form>
     </div>
   );
